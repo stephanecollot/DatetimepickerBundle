@@ -1,7 +1,12 @@
-parameters:
-#    stephanecollot_datetimepicker.example.class: StephaneCollot\StephaneCollotDatetimepickerBundle\Example
-
 services:
-#    stephanecollot_datetimepicker.example:
-#        class: %stephanecollot_datetimepicker.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    stephanecollot.form.type.datetime:
+        class: StephaneCollot\StephaneCollotDatetimepickerBundle\Form\Type\DatetimepickerType
+        tags:
+            -  { name: form.type, alias: collot_datetime }
+
+#service:
+#    form.type.datePicker:
+#        class: Acme\AcmeDemoBundle\Form\Type\DatePickerType
+#        tags:
+#          − { name: form.type, alias: datePicker }
+ 

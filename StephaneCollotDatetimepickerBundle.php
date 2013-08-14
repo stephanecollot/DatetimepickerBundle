@@ -3,7 +3,6 @@
 namespace StephaneCollot\Bundle\DatetimepickerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class StephaneCollotDatetimepickerBundle extends Bundle
@@ -15,8 +14,6 @@ class StephaneCollotDatetimepickerBundle extends Bundle
     public function build(ContainerBuilder $container)
     {
         parent::build($container);
-        $container->addCompilerPass(new ValidateExtensionConfigurationPass());
-
     }
 }
 

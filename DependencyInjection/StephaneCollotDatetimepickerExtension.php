@@ -24,5 +24,26 @@ class StephaneCollotDatetimepickertExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+        
+        
+        if (isset($configs["picker"]) && !empty($configs["picker"]['enabled'])) {
+            $method = 'register' . ucfirst("picker") . 'Configuration';
+
+            $this->$method($configs["picker"], $container);
+        }
+        
+        
+        
+    }
+    
+    /**
+     * Loads Picker configuration
+     *
+     * @param array            $config    A configuration array
+     * @param ContainerBuilder $container A ContainerBuilder instance
+     */
+    private function registerPickerConfiguration(array $configs, ContainerBuilder $container)
+    {
+        $container->setParameter('stephanecollot.form.type.datetime', $configs['configs']);
     }
 }

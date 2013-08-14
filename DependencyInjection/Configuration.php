@@ -19,11 +19,37 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('stephanecollot_datetimepicker');
+        
+        $this->addPicker($rootNode);
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
 
         return $treeBuilder;
+    }
+    
+    
+    /**
+     * Add configuration Picker
+     *
+     * @param ArrayNodeDefinition $rootNode
+     */
+    private function addPicker(ArrayNodeDefinition $rootNode)
+    {
+        $rootNode
+            ->children()
+                ->arrayNode('date')
+                    ->canBeUnset()
+                    ->addDefaultsIfNotSet()
+                    ->treatNullLike(array('enabled' => true))
+                    ->treatTrueLike(array('enabled' => true))
+                    ->children()
+                        ->booleanNode('enabled')->defaultTrue()->end()
+                        ->variableNode('configs')->defaultValue(array())->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
     }
 }

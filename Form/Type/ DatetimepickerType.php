@@ -22,7 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType as BaseDateType;
 * DatetimeType
 *
 */
-class DatetimeType extends AbstractType
+class DatetimepickerType extends AbstractType
 {
     private $options;
 
