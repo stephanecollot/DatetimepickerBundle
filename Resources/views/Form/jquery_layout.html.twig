@@ -10,27 +10,6 @@
 
 {% block button_javascript "" %}
 
-{% block genemu_captcha_javascript %}
-{% spaceless %}
-    <!--[if lte IE 7]>
-<script type="text/javascript">
-$(function () {
-var pathBase64 = "{{ path('genemu_base64')}}";
-
-$(document.images).each(function(){
-var src = $(this).attr("src");
-if (/^data:.*;base64/i.test(src)) {
-src = src.slice(5);
-$(this).attr("src",pathBase64+"?"+src);
-}
-});
-});
-</script>
-<![endif]-->
-{% endspaceless %}
-{% endblock genemu_captcha_javascript %}
-
-
 {% block collot_datetime_javascript %}
 {% spaceless %}
 
@@ -38,7 +17,7 @@ $(this).attr("src",pathBase64+"?"+src);
         jQuery(document).ready(function($) {
             $field = $('#{% if widget != "single_text" %}datepicker_{% endif %}{{ id }}');
         
-        {% block collot_datetime_javascript_prototype %}
+        {% block genemu_jquerydate_javascript_prototype %}
 
         {% if configs.buttonImage is defined %}
             {% set configs = configs|merge({

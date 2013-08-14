@@ -7,17 +7,25 @@
     {% else %}
         <div {{ block("widget_container_attributes") }}>
             {{ date_pattern|replace({
-                "{{ year }}": form_widget(form.year),
+                "{{ year }}":  form_widget(form.year),
                 "{{ month }}": form_widget(form.month),
-                "{{ day }}": form_widget(form.day),
+                "{{ day }}":   form_widget(form.day),
             })|raw }}
 
             {% set attr = {"size": 10}|merge(attr) %}
-            {% set id = "datetimepicker_" ~ id %}
+            {% set id = "datepicker_" ~ id %}
             {% set value = '' %}
-            {% set full_name = "datetimepicker_" ~ full_name %}
+            {% set full_name = "datepicker_" ~ full_name %}
             {{ block("hidden_widget") }}
         </div>
     {% endif %}
 {% endspaceless %}
 {% endblock collot_datetime_widget %}
+
+
+{% block collot_plain_widget %}
+    <div {{ block('container_attributes') }}>
+        <p {{ block('widget_attributes') }}>{{ value|escape }}</p>
+    </div>
+{% endblock %}
+

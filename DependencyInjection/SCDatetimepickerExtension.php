@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class StephaneCollotDatetimepickerExtension extends Extension
+class SCDatetimepickerExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -21,12 +21,12 @@ class StephaneCollotDatetimepickerExtension extends Extension
     {
         $configs = $this->processConfiguration(new Configuration(), $configs);
 
-        $loaderYml = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loaderYml->load('services.yml');     
+        //$loaderYml = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        //$loaderYml->load('services.yml');     
  
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('twig.xml');     
-        //$loader->load('datetime.xml');        
+        $loader->load('datetime.xml');        
         
         if (isset($configs["picker"]) && !empty($configs["picker"]['enabled'])) {
             $method = 'register' . ucfirst("picker") . 'Configuration';
@@ -44,6 +44,6 @@ class StephaneCollotDatetimepickerExtension extends Extension
      */
     private function registerPickerConfiguration(array $configs, ContainerBuilder $container)
     {
-        $container->setParameter('stephanecollot.form.type.datetime', $configs['configs']);
+        $container->setParameter('sc_datetimepicker.form.options', $configs['configs']);
     }
 }

@@ -5,14 +5,17 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="stephanecollot.form.datetime.options" type="collection" />
+        <parameter key="sc_datetimepicker.form.options" type="collection" />
     </parameters>
 
     <services>
+        <service id="sc_datetimepicker.form.type.plain" class="SC\DatetimepickerBundle\Form\Type\PlainType">
+            <tag name="form.type" alias="collot_plain" />
+        </service>
     
-        <service id="stephanecollot.form.type.datetime" class="SC\DatetimepickerBundle\Form\Type\DatetimeType">
+        <service id="sc_datetimepicker.form.type.datetime" class="SC\DatetimepickerBundle\Form\Type\DatetimeType">
             <tag name="form.type" alias="collot_datetime" />
-            <argument>%stephanecollot.form.datetime.options%</argument>
+            <argument>%sc_datetimepicker.form.options%</argument>
         </service>
         
     </services>
