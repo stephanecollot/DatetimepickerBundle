@@ -37,9 +37,15 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new SC\DatetimepickerBundle\StephaneCollotDatetimepickerBundle(),
+        new SC\DatetimepickerBundle\SCDatetimepickerBundle(),
     );
 }
+```
+
+``` yml
+# app/config/config.yml
+sc_datetimepicker:
+    picker: ~
 ```
 
 ### Step 3: Initialize assets
@@ -62,6 +68,36 @@ public function buildForm(FormBuilder $builder, array $options)
             'widget' => 'single_text'
         ));
 }
+```
+
+Add form_javascript and form_stylesheet
+
+The principle is to separate the javascript, stylesheet and html.
+This allows better integration of web pages.
+
+### Example:
+
+``` twig
+{% block stylesheets %}
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+    
+    {{ form_stylesheet(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/jquery.min.jss') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    
+    {{ form_javascript(form) }}
+{% endblock %}
+
+{% block body %}
+    <form action="{{ path('my_route_form') }}" type="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+
+        <input type="submit" />
+    </form>
+{% endblock %}
 ```
 
 ## Documentation
