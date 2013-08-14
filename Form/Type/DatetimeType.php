@@ -69,6 +69,7 @@ class DatetimeType extends AbstractType
             'max_year' => max($years),
             'configs' => $configs,
             'culture' => $options['culture'],
+            'pickerOptions' => $options['pickerOptions'],
         ));
     }
 
@@ -87,6 +88,7 @@ class DatetimeType extends AbstractType
                 'configs' => array(
                     'dateFormat' => null,
                 ),
+                'pickerOptions' => array('format' => 'mm-dd-yyyy' ),
             ))
             ->setNormalizers(array(
                 'configs' => function (Options $options, $value) use ($configs) {

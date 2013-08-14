@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction($name)
     {
-        return $this->render('StephaneCollotDatetimepickerBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('SCDatetimepickerBundle:Default:index.html.twig', array('name' => $name));
     }
 }
