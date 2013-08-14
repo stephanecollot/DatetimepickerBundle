@@ -1,6 +1,6 @@
 <?php
 
-namespace StephaneCollot\Bundle\StephaneCollotDatetimepickerBundle\Tests\Functional;
+namespace SC\DatetimepickerBundle\StephaneCollotDatetimepickerBundle\Tests\Functional;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Filesystem\Filesystem;

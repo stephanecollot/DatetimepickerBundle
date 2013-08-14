@@ -1,6 +1,6 @@
 <?php
 
-namespace StephaneCollot\Bundle\StephaneCollotDatetimepickerBundle\Tests\Functional;
+namespace SC\DatetimepickerBundle\StephaneCollotDatetimepickerBundle\Tests\Functional;
 
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -31,8 +31,8 @@ class AppKernel extends Kernel
         return array(
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new \Symfony\Bundle\TwigBundle\TwigBundle(),
-            new \StephaneCollot\Bundle\StephaneCollotDatetimepickerBundle\StephaneCollotDatetimepickerBundle(),
-            new \StephaneCollot\Bundle\StephaneCollotDatetimepickerBundle\Tests\Functional\TestBundle\TestBundle(),
+            new \SC\DatetimepickerBundle\StephaneCollotDatetimepickerBundle\StephaneCollotDatetimepickerBundle(),
+            new \SC\DatetimepickerBundle\StephaneCollotDatetimepickerBundle\Tests\Functional\TestBundle\TestBundle(),
         );
     }
 

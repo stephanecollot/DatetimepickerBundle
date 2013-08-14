@@ -9,7 +9,7 @@
 * file that was distributed with this source code.
 */
 
-namespace StephaneCollot\Bundle\DatetimepickerBundle\Form\Type;
+namespace SC\DatetimepickerBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;

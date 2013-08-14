@@ -1,11 +1,11 @@
 <?php
 
-namespace StephaneCollot\Bundle\DatetimepickerBundle;
+namespace SC\DatetimepickerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class StephaneCollotDatetimepickerBundle extends Bundle
+class SCDatetimepickerBundle extends Bundle
 {
     
     /**

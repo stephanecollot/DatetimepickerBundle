@@ -1,6 +1,6 @@
 <?php
 
-namespace StephaneCollot\Bundle\StephaneCollotDatetimepickerBundle\Tests\Functional\TestBundle;
+namespace SC\DatetimepickerBundle\StephaneCollotDatetimepickerBundle\Tests\Functional\TestBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

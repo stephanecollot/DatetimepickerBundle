@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace StephaneCollot\Bundle\DatetimepickerBundle\Twig\Extension;
+namespace SC\DatetimepickerBundle\Twig\Extension;
 
 use Symfony\Component\Form\FormView;
 use Symfony\Bridge\Twig\Form\TwigRendererInterface;

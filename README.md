@@ -37,7 +37,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new StephaneCollot\Bundle\DatetimepickerBundle\StephaneCollotDatetimepickerBundle(),
+        new SC\DatetimepickerBundle\StephaneCollotDatetimepickerBundle(),
     );
 }
 ```

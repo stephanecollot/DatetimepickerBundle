@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="stephanecollot.twig.extension.form" class="StephaneCollot\Bundle\DatetimepickerBundle\Twig\Extension\FormExtension">
+        <service id="stephanecollot.twig.extension.form" class="SC\DatetimepickerBundle\Twig\Extension\FormExtension">
             <tag name="twig.extension" />
             <argument type="service" id="twig.form.renderer" />
         </service>
