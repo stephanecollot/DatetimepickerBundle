@@ -1,6 +1,6 @@
 <?php
 
-namespace LilaConcepts\Bundle\LilaConceptsBestPracticeBundle\Tests\Functional;
+namespace StephaneCollot\Bundle\StephaneCollotDatetimepickerBundle\Tests\Functional;
 
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -31,8 +31,8 @@ class AppKernel extends Kernel
         return array(
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new \Symfony\Bundle\TwigBundle\TwigBundle(),
-            new \LilaConcepts\Bundle\LilaConceptsBestPracticeBundle\LilaConceptsBestPracticeBundle(),
-            new \LilaConcepts\Bundle\LilaConceptsBestPracticeBundle\Tests\Functional\TestBundle\TestBundle(),
+            new \StephaneCollot\Bundle\StephaneCollotDatetimepickerBundle\StephaneCollotDatetimepickerBundle(),
+            new \StephaneCollot\Bundle\StephaneCollotDatetimepickerBundle\Tests\Functional\TestBundle\TestBundle(),
         );
     }
 
@@ -43,6 +43,6 @@ class AppKernel extends Kernel
 
     public function getCacheDir()
     {
-        return sys_get_temp_dir().'/LilaConceptsBestPracticeBundle';
+        return sys_get_temp_dir().'/StephaneCollotDatetimepickerBundle';
     }
 }

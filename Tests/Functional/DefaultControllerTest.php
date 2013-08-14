@@ -1,6 +1,6 @@
 <?php
 
-namespace LilaConcepts\Bundle\LilaConceptsBestPracticeBundle\Tests\Functional;
+namespace StephaneCollot\Bundle\StephaneCollotDatetimepickerBundle\Tests\Functional;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Filesystem\Filesystem;
@@ -22,7 +22,7 @@ class DefaultControllerTest extends WebTestCase
     protected function setUp()
     {
         $fs = new Filesystem();
-        $fs->remove(sys_get_temp_dir().'/LilaConceptsBestPracticeBundle/');
+        $fs->remove(sys_get_temp_dir().'/StephaneCollotDatetimepickerBundle/');
     }
 
     protected static function createKernel(array $options = array())

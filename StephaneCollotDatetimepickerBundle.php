@@ -1,10 +1,22 @@
 <?php
 
-namespace LilaConcepts\Bundle\LilaConceptsBestPracticeBundle;
+namespace StephaneCollot\Bundle\DatetimepickerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class LilaConceptsBestPracticeBundle extends Bundle
+class StephaneCollotDatetimepickerBundle extends Bundle
 {
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+        $container->addCompilerPass(new ValidateExtensionConfigurationPass());
+
+    }
 }
 
