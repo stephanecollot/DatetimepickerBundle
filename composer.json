@@ -17,8 +17,8 @@
     },
     "autoload":     {
         "psr-0": {
-            "StephaneCollot\\Bundle\\DatetimepickerBundle": ""
+            "StephaneCollot\\DatetimepickerBundle": ""
         }
     },
-    "target-dir": "StephaneCollot/Bundle/DatetimepickerBundle"
+    "target-dir": "StephaneCollot/DatetimepickerBundle"
 }

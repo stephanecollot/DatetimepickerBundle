@@ -12,27 +12,27 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class StephaneCollotDatetimepickertExtension extends Extension
+class StephaneCollotDatetimepickerExtension extends Extension
 {
     /**
      * {@inheritDoc}
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
+        $configs = $this->processConfiguration(new Configuration(), $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
-        
+        $loaderYml = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loaderYml->load('services.yml');     
+ 
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('twig.xml');     
+        //$loader->load('datetime.xml');        
         
         if (isset($configs["picker"]) && !empty($configs["picker"]['enabled'])) {
             $method = 'register' . ucfirst("picker") . 'Configuration';
 
             $this->$method($configs["picker"], $container);
         }
-        
-        
         
     }
     

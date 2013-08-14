@@ -1,6 +1,9 @@
+parameters:
+    datetimepicker.class: StephaneCollot\DatetimepickerBundle\Form\Type\DatetimepickerType
+
 services:
     stephanecollot.form.type.datetime:
-        class: StephaneCollot\StephaneCollotDatetimepickerBundle\Form\Type\DatetimepickerType
+        class: "%datetimepicker.class%"
         tags:
             -  { name: form.type, alias: collot_datetime }
 

@@ -22,23 +22,23 @@ use Symfony\Component\Form\Extension\Core\Type\DateType as BaseDateType;
 * DatetimeType
 *
 */
-class DatetimepickerType extends AbstractType
+class DatetimeType extends AbstractType
 {
     private $options;
 
     /**
-* Constructs
-*
-* @param array $options
-*/
+    * Constructs
+    *
+    * @param array $options
+    */
     public function __construct(array $options)
     {
         $this->options = $options;
     }
     
     /**
-* {@inheritdoc}
-*/
+    * {@inheritdoc}
+    */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         $configs = $options['configs'];
@@ -73,8 +73,8 @@ class DatetimepickerType extends AbstractType
     }
 
     /**
-* {@inheritdoc}
-*/
+    * {@inheritdoc}
+    */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $configs = $this->options;
@@ -101,28 +101,28 @@ class DatetimepickerType extends AbstractType
     }
 
     /**
-* {@inheritdoc}
-*/
+    * {@inheritdoc}
+    */
     public function getParent()
     {
         return 'date';
     }
 
     /**
-* {@inheritdoc}
-*/
+    * {@inheritdoc}
+    */
     public function getName()
     {
         return 'collot_datetime';
     }
 
     /**
-* Create pattern Date Javascript
-*
-* @param IntlDateFormatter $formatter
-*
-* @return string pattern date of Javascript
-*/
+    * Create pattern Date Javascript
+    *
+    * @param IntlDateFormatter $formatter
+    *
+    * @return string pattern date of Javascript
+    */
     protected function getJavascriptPattern(\IntlDateFormatter $formatter)
     {
         $pattern = $formatter->getPattern();
