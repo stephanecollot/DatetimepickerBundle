@@ -37,9 +37,15 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new SC\DatetimepickerBundle\StephaneCollotDatetimepickerBundle(),
+        new SC\DatetimepickerBundle\SCDatetimepickerBundle(),
     );
 }
+```
+
+``` yml
+# app/config/config.yml
+sc_datetimepicker:
+    picker: ~
 ```
 
 ### Step 3: Initialize assets
