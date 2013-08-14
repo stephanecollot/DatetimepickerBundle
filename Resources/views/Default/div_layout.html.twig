@@ -1,0 +1,23 @@
+
+
+{% block collot_datetime_widget %}
+{% spaceless %}
+    {% if widget == "single_text" %}
+        {{ block("form_widget_simple") }}
+    {% else %}
+        <div {{ block("widget_container_attributes") }}>
+            {{ date_pattern|replace({
+                "{{ year }}": form_widget(form.year),
+                "{{ month }}": form_widget(form.month),
+                "{{ day }}": form_widget(form.day),
+            })|raw }}
+
+            {% set attr = {"size": 10}|merge(attr) %}
+            {% set id = "datetimepicker_" ~ id %}
+            {% set value = '' %}
+            {% set full_name = "datetimepicker_" ~ full_name %}
+            {{ block("hidden_widget") }}
+        </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock collot_datetime_widget %}
