@@ -1,3 +1,0 @@
-StephaneCollotDatetimepickerBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: StephaneCollotDatetimepickerBundle:Default:index }
