@@ -13,9 +13,9 @@
 {% block collot_datetime_javascript %}
 {% spaceless %}
 
-    <script type="text/javascript" src="{{ asset('js/bootstrap-datetimepicker.min.js') }}" charset="UTF-8"></script>
+    <script type="text/javascript" src="{{ asset('bundles/scdatetimepicker/js/bootstrap-datetimepicker.min.js') }}" charset="UTF-8"></script>
     {% if pickerOptions.language is defined %}
-        <script type="text/javascript" src="{{ asset('js/bootstrap-datetimepicker.'~ pickerOptions.language ~'.js') }}" charset="UTF-8"></script>
+        <script type="text/javascript" src="{{ asset('bundles/scdatetimepicker/js/locales/bootstrap-datetimepicker.'~ pickerOptions.language ~'.js') }}" charset="UTF-8"></script>
     {% endif %}
     
     <script type="text/javascript">
