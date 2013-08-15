@@ -1,6 +1,6 @@
 #DatetimepickerBundle
 
-This bundle implement the [Bootstrap DateTime Picker](https://github.com/smalot/bootstrap-datetimepicker) in a Form Type for Symfony 2.*
+This bundle implement the [Bootstrap DateTime Picker](https://github.com/smalot/bootstrap-datetimepicker) in a Form Type for Symfony 2.*. The bundle structure is inspired by GenemuFormBundle.
 
 Demo : http://www.malot.fr/bootstrap-datetimepicker/demo.php
 
