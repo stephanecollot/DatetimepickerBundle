@@ -62,11 +62,33 @@ $ php app/console assets:install web/
 public function buildForm(FormBuilder $builder, array $options)
 {
     $builder
-        // ...
-        ->add('createdAt', 'collot_datetime')
-        ->add('updatedAt', 'collot_datetime', array(
-            'widget' => 'single_text'
-        ));
+        // defaut options
+        ->add('createdAt', 'collot_datetime') 
+        
+        // full options
+        ->add('updatedAt', 'collot_datetime', array( 'pickerOptions' =>
+            array('format' => 'mm/dd/yyyy',
+                'weekStart' => 0,
+                'startDate' => date('MM/dd/yyyy', 0),
+                'endDate' => '01/01/3000', //example
+                'daysOfWeekDisabled' => '0,6', //example
+                'autoclose' => false,
+                'startView' => 'month',
+                'minView' => 'hour',
+                'maxView' => 'decade',
+                'todayBtn' => false,
+                'todayHighlight' => false,
+                'keyboardNavigation' => true,
+                'language' => 'en',
+                'forceParse' => true,
+                'minuteStep' => 5,
+                'pickerReferer ' => 'default', //deprecated
+                'pickerPosition' => 'bottom-right',
+                'viewSelect' => 'hour',
+                'showMeridian' => false,
+                'initialDate' => date('MM/dd/yyyy'),
+                ))) ; 
+
 }
 ```
 
