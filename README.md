@@ -104,4 +104,8 @@ This allows better integration of web pages.
 
 The documentation of the datetime picker is here : http://www.malot.fr/bootstrap-datetimepicker/#options
 
+## Notes
+
+The date format from ``` php 'pickerOptions' => array('format'=>'dd MM yyyy - HH:ii p') ``` is used to set automatically the date format of Symfony in order to make compatible Symfony and JavaScript output.
+But there are some problems for example with MM wich display "décembre" in PHP intl translation and "Decembre" in Bootstrap translation. That is why I edited js/locales/bootstrap-datetimepicker.fr.js
 
