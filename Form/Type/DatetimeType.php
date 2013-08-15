@@ -1,7 +1,7 @@
 <?php
 
 /*
-* This file is part of the StephanecollotDatetimepickerBundle package.
+* This file is part of the SCDatetimepickerBundle package.
 *
 * (c) Stephane Collot
 *
@@ -82,7 +82,7 @@ class DatetimeType extends AbstractType
     }
 
     /**
-    * 
+    * Convert the Bootstrap Datetimepicker date format to PHP date format
     */
     public function convertMalotToIntlFormater($formatter)
     {
@@ -98,7 +98,6 @@ class DatetimeType extends AbstractType
         $patterns = preg_split('([\\\/.:_;,\s-\ ]{1})', $formatter);
         $exits = array();
 
-        // Transform pattern for JQuery ui datepicker
         foreach ($patterns as $index => $val) {
             switch ($val) {
                 case 'yyyy':

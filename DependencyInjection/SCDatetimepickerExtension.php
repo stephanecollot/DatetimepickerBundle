@@ -8,9 +8,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
 /**
- * This is the class that loads and manages your bundle configuration
- *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
+ * This is the class that loads and manages bundle configuration
  */
 class SCDatetimepickerExtension extends Extension
 {
@@ -21,11 +19,7 @@ class SCDatetimepickerExtension extends Extension
     {
         $configs = $this->processConfiguration(new Configuration(), $configs);
 
-        //$loaderYml = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        //$loaderYml->load('services.yml');     
- 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('twig.xml');     
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));    
         $loader->load('datetime.xml');        
         
         if (isset($configs["picker"]) && !empty($configs["picker"]['enabled'])) {
