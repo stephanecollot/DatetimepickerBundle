@@ -41,35 +41,16 @@ class DatetimeType extends AbstractType
     */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $configs = $options['configs'];
-        $years = $options['years'];
+        $pickerOptions = $options['pickerOptions'];
 
-        $configs['dateFormat'] = 'yy-mm-dd';
-        if ('single_text' === $options['widget']) {
-            $dateFormat = is_int($options['format']) ? $options['format'] : BaseDateType::DEFAULT_FORMAT;
-            $timeFormat = \IntlDateFormatter::NONE;
-            $calendar = \IntlDateFormatter::GREGORIAN;
-            $pattern = is_string($options['format']) ? $options['format'] : null;
-
-            $formatter = new \IntlDateFormatter(
-                \Locale::getDefault(),
-                $dateFormat,
-                $timeFormat,
-                'UTC',
-                $calendar,
-                $pattern
-            );
-            $formatter->setLenient(false);
-
-            $configs['dateFormat'] = $this->getJavascriptPattern($formatter);
-        }
+        if(!isset($options['pickerOptions']['language']))
+            $pickerOptions['language'] = \Locale::getDefault();
+        
+        if($pickerOptions['language'] == 'en')
+            unset($pickerOptions['language']);
 
         $view->vars = array_replace($view->vars, array(
-            'min_year' => min($years),
-            'max_year' => max($years),
-            'configs' => $configs,
-            'culture' => $options['culture'],
-            'pickerOptions' => $options['pickerOptions'],
+            'pickerOptions' => $pickerOptions,
         ));
     }
 
@@ -78,27 +59,10 @@ class DatetimeType extends AbstractType
     */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $configs = $this->options;
-
         $resolver
             ->setDefaults(array(
-                'culture' => \Locale::getDefault(),
-                'widget' => 'choice',
-                'years' => range(date('Y') - 5, date('Y') + 5),
-                'configs' => array(
-                    'dateFormat' => null,
-                ),
-                'pickerOptions' => array('format' => 'mm-dd-yyyy' ),
-            ))
-            ->setNormalizers(array(
-                'configs' => function (Options $options, $value) use ($configs) {
-                    $result = array_merge($configs, $value);
-                    if ('single_text' !== $options['widget'] || isset($result['buttonImage'])) {
-                        $result['showOn'] = 'button';
-                    }
-
-                    return $result;
-                }
+                'widget' => 'single_text',
+                'pickerOptions' => array(),
             ));
     }
 
@@ -107,7 +71,7 @@ class DatetimeType extends AbstractType
     */
     public function getParent()
     {
-        return 'date';
+        return 'datetime';
     }
 
     /**
@@ -118,61 +82,4 @@ class DatetimeType extends AbstractType
         return 'collot_datetime';
     }
 
-    /**
-    * Create pattern Date Javascript
-    *
-    * @param IntlDateFormatter $formatter
-    *
-    * @return string pattern date of Javascript
-    */
-    protected function getJavascriptPattern(\IntlDateFormatter $formatter)
-    {
-        $pattern = $formatter->getPattern();
-        $patterns = preg_split('([\\\/.:_;,\s-\ ]{1})', $pattern);
-        $exits = array();
-
-        // Transform pattern for JQuery ui datepicker
-        foreach ($patterns as $index => $val) {
-            switch ($val) {
-                case 'yy':
-                    $exits[$val] = 'y';
-                    break;
-                case 'y':
-                case 'yyyy':
-                    $exits[$val] = 'yy';
-                    break;
-                case 'M':
-                    $exits[$val] = 'm';
-                    break;
-                case 'MM':
-                case 'L':
-                case 'LL':
-                    $exits[$val] = 'mm';
-                    break;
-                case 'MMM':
-                case 'LLL':
-                    $exits[$val] = 'M';
-                    break;
-                case 'MMMM':
-                case 'LLLL':
-                    $exits[$val] = 'MM';
-                    break;
-                case 'D':
-                    $exits[$val] = 'o';
-                    break;
-                case 'E':
-                case 'EE':
-                case 'EEE':
-                case 'eee':
-                    $exits[$val] = 'D';
-                    break;
-                case 'EEEE':
-                case 'eeee':
-                    $exits[$val] = 'DD';
-                    break;
-            }
-        }
-
-        return str_replace(array_keys($exits), array_values($exits), $pattern);
-    }
 }
