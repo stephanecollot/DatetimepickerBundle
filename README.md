@@ -1,10 +1,10 @@
 #DatetimepickerBundle
 
-This bundle implement the [Bootstrap DateTime Picker](https://github.com/smalot/bootstrap-datetimepicker) in a Form Type for Symfony 2.*. The bundle structure is inspired by GenemuFormBundle.
+This bundle implements the [Bootstrap DateTime Picker](https://github.com/smalot/bootstrap-datetimepicker) in a Form Type for Symfony 2.*. The bundle structure is inspired by GenemuFormBundle.
 
 Demo : http://www.malot.fr/bootstrap-datetimepicker/demo.php
 
-Please feel free to contribute, to fork, and to send merge request.
+Please feel free to contribute, to fork, to send merge request and to create ticket.
 
 ##Installation
 
@@ -129,5 +129,5 @@ The documentation of the datetime picker is here : http://www.malot.fr/bootstrap
 ## Notes
 
 The date format from ``` php 'pickerOptions' => array('format'=>'dd MM yyyy - HH:ii p') ``` is used to set automatically the date format of Symfony in order to make compatible Symfony and JavaScript output.
-But there are some problems for example with MM wich display "décembre" in PHP intl translation and "Decembre" in Bootstrap translation. That is why I edited js/locales/bootstrap-datetimepicker.fr.js
+But there are some problems for example with ``` php MM``` which display "décembre" in PHP intl translation and "Decembre" in Bootstrap translation. That is why I edited js/locales/bootstrap-datetimepicker.fr.js
 
