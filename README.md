@@ -69,7 +69,7 @@ public function buildForm(FormBuilder $builder, array $options)
         ->add('updatedAt', 'collot_datetime', array( 'pickerOptions' =>
             array('format' => 'mm/dd/yyyy',
                 'weekStart' => 0,
-                'startDate' => date('MM/dd/yyyy', 0),
+                'startDate' => date('m/d/Y'), //example
                 'endDate' => '01/01/3000', //example
                 'daysOfWeekDisabled' => '0,6', //example
                 'autoclose' => false,
@@ -86,7 +86,7 @@ public function buildForm(FormBuilder $builder, array $options)
                 'pickerPosition' => 'bottom-right',
                 'viewSelect' => 'hour',
                 'showMeridian' => false,
-                'initialDate' => date('MM/dd/yyyy'),
+                'initialDate' => date('m/d/Y', 1577836800), //example
                 ))) ; 
 
 }
