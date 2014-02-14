@@ -53,7 +53,7 @@ class DatetimeType extends AbstractType
         
         //Set the defaut format of malot.fr/bootstrap-datetimepicker
         if(!isset($options['pickerOptions']['format']))
-            $pickerOptions['format'] = 'mm/dd/yyyy';
+            $pickerOptions['format'] = 'mm/dd/yyyy HH:ii';
 
 
         $view->vars = array_replace($view->vars, array(
@@ -75,7 +75,7 @@ class DatetimeType extends AbstractType
                     if(isset($options['pickerOptions']['format']))
                         return $this->convertMalotToIntlFormater( $options['pickerOptions']['format'] );
                     else
-                        return $this->convertMalotToIntlFormater( 'mm/dd/yyyy' );
+                        return $this->convertMalotToIntlFormater( 'mm/dd/yyyy HH:ii' );
                 },
                 'pickerOptions' => array(),
             ));
