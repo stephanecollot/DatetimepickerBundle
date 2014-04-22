@@ -73,9 +73,9 @@ class DatetimeType extends AbstractType
                 'widget' => 'single_text',
                 'format' => function (Options $options, $value) use ($configs) {
                     if(isset($options['pickerOptions']['format']))
-                        return $this->convertMalotToIntlFormater( $options['pickerOptions']['format'] );
+                        return DatetimeType::convertMalotToIntlFormater( $options['pickerOptions']['format'] );
                     else
-                        return $this->convertMalotToIntlFormater( 'mm/dd/yyyy HH:ii' );
+                        return DatetimeType::convertMalotToIntlFormater( 'mm/dd/yyyy HH:ii' );
                 },
                 'pickerOptions' => array(),
             ));
@@ -84,7 +84,7 @@ class DatetimeType extends AbstractType
     /**
     * Convert the Bootstrap Datetimepicker date format to PHP date format
     */
-    public function convertMalotToIntlFormater($formatter)
+    public static function convertMalotToIntlFormater($formatter)
     {
         $malotFormater  =  array("yyyy", "ss", "ii", "hh", "HH", "dd", "mm", "MM",   "yy");
         $intlFormater   =  array("yyyy", "ss", "mm", "HH", "hh", "dd", "MM", "MMMM", "yy");
