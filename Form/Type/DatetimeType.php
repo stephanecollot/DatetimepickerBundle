@@ -113,7 +113,7 @@ class DatetimeType extends AbstractType
                     $exits[$val] = 'HH';
                     break;
                 case 'HH':
-                    $exits[$val] = 'hh';
+                    $exits[$val] = 'HH';
                     break;
                 case 'dd':
                     $exits[$val] = 'dd';
