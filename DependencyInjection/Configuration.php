@@ -18,13 +18,13 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('stephane_collot_datetimepicker');
-        
+
         $this->addPicker($rootNode);
 
         return $treeBuilder;
     }
-    
-    
+
+
     /**
      * Add configuration Picker
      *
@@ -41,7 +41,14 @@ class Configuration implements ConfigurationInterface
                     ->treatTrueLike(array('enabled' => true))
                     ->children()
                         ->booleanNode('enabled')->defaultTrue()->end()
-                        ->variableNode('configs')->defaultValue(array())->end()
+                        ->arrayNode('configs')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->enumNode('formatter')->defaultValue('js')
+                                    ->values(array('js', 'php'))
+                                ->end()
+                            ->end()
+                        ->end()
                     ->end()
                 ->end()
             ->end()

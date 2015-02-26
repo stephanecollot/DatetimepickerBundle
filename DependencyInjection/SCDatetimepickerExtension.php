@@ -21,16 +21,16 @@ class SCDatetimepickerExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 		$loader->load('twig.xml');
-        $loader->load('datetime.xml');        
-        
+        $loader->load('datetime.xml');
+
         if (isset($configs["picker"]) && !empty($configs["picker"]['enabled'])) {
             $method = 'register' . ucfirst("picker") . 'Configuration';
 
             $this->$method($configs["picker"], $container);
         }
-        
+
     }
-    
+
     /**
      * Loads Picker configuration
      *
