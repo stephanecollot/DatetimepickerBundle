@@ -75,8 +75,8 @@ class DatetimeType extends AbstractType
         }
 
         $view->vars = array_replace($view->vars, array(
-            'includeCSS' => $options['auto_include_scripts'],
-            'includeJS' => $options['auto_include_scripts'],
+            'includeCSS' => $options['auto_include_assets'],
+            'includeJS' => $options['auto_include_assets'],
             'pickerOptions' => $pickerOptions,
         ));
     }
