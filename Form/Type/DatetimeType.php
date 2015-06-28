@@ -74,6 +74,17 @@ class DatetimeType extends AbstractType
             $pickerOptions['format'] = DatetimeType::convertIntlFormaterToMalot( $pickerOptions['format'] );
         }
 
+        // Convert DateTimeInterface objects to date strings before passing to JavaScript.
+        foreach ($pickerOptions as $name => $value) {
+            if ($value instanceof \DateTime || $value instanceof \DateTimeInterface) {
+                if (!$value instanceof \DateTimeImmutable) {
+                    $value = clone $value;
+                }
+                $timezone = new \DateTimeZone($options['view_timezone']);
+                $pickerOptions[$name] = $value->setTimezone($timezone)->format('Y-m-d H:i:s');
+            }
+        }
+
         $view->vars = array_replace($view->vars, array(
             'pickerOptions' => $pickerOptions,
         ));
