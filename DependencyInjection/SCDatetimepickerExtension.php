@@ -24,9 +24,7 @@ class SCDatetimepickerExtension extends Extension
         $loader->load('datetime.xml');
 
         if (isset($configs["picker"]) && !empty($configs["picker"]['enabled'])) {
-            $method = 'register' . ucfirst("picker") . 'Configuration';
-
-            $this->$method($configs["picker"], $container);
+            $this->registerPickerConfiguration($configs["picker"], $container);
         }
 
     }
@@ -34,7 +32,7 @@ class SCDatetimepickerExtension extends Extension
     /**
      * Loads Picker configuration
      *
-     * @param array            $config    A configuration array
+     * @param array            $configs    A configuration array
      * @param ContainerBuilder $container A ContainerBuilder instance
      */
     private function registerPickerConfiguration(array $configs, ContainerBuilder $container)
