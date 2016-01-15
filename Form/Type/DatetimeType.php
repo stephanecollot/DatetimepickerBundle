@@ -15,8 +15,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\Options;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Form\Extension\Core\Type\DateType as BaseDateType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
 * DatetimeType
@@ -82,7 +81,7 @@ class DatetimeType extends AbstractType
     /**
     * {@inheritdoc}
     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $configs = $this->options;
 
@@ -160,14 +159,10 @@ class DatetimeType extends AbstractType
      */
     public function getParent()
     {
-        return 'datetime';
+        return \Symfony\Component\Form\Extension\Core\Type\DateTimeType::class;
     }
 
-    /**
-     *
-     * @see \Symfony\Component\Form\FormTypeInterface::getName()
-     */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'collot_datetime';
     }
