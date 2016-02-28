@@ -107,7 +107,7 @@ This allows better integration of web pages.
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('js/jquery.min.jss') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     
     {{ form_javascript(form) }}
