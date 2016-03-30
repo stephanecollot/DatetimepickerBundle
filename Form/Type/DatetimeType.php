@@ -161,6 +161,11 @@ class DatetimeType extends AbstractType
     {
         return \Symfony\Component\Form\Extension\Core\Type\DateTimeType::class;
     }
+    
+    public function getName()
+    {
+        return 'collot_datetime';
+    }
 
     public function getBlockPrefix()
     {
