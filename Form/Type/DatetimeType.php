@@ -159,7 +159,7 @@ class DatetimeType extends AbstractType
      */
     public function getParent()
     {
-        return \Symfony\Component\Form\Extension\Core\Type\DateTimeType::class;
+        return '\Symfony\Component\Form\Extension\Core\Type\DateTimeType';
     }
     
     public function getName()
