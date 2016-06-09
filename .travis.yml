@@ -9,6 +9,6 @@ env:
 
 before_script:
   - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install
+  - php -d memory_limit=1 composer.phar install
 
 script: phpunit
