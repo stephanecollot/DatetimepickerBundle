@@ -16,12 +16,13 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 /**
-* DatetimeType
+* SCDatetimeType
 *
 */
-class DatetimeType extends AbstractType
+class SCDatetimeType extends AbstractType
 {
     /**
      *
@@ -46,7 +47,7 @@ class DatetimeType extends AbstractType
     *
     * @param array $options
     */
-    public function __construct(array $options)
+    public function __construct(array $options = array())
     {
         $this->options = $options;
 
@@ -69,7 +70,7 @@ class DatetimeType extends AbstractType
         if(!isset($pickerOptions['format']))
             $pickerOptions['format'] = 'mm/dd/yyyy HH:ii';
 
-        if ($pickerOptions['formatter'] == 'php'){
+        if (isset($pickerOptions['formatter']) && $pickerOptions['formatter'] == 'php'){
             $pickerOptions['format'] = DatetimeType::convertIntlFormaterToMalot( $pickerOptions['format'] );
         }
 
@@ -91,13 +92,13 @@ class DatetimeType extends AbstractType
                 'format' => function (Options $options, $value) use ($configs) {
                     $pickerOptions = array_merge($configs, $options['pickerOptions']);
 
-                    if ($pickerOptions['formatter'] == 'php'){
+                    if (isset($pickerOptions['formatter']) && $pickerOptions['formatter'] == 'php'){
                         if (isset($pickerOptions['format'])){
                             return $pickerOptions['format'];
                         } else {
                             return 'mm/dd/yyyy HH:ii';
                         }
-                    } elseif ($pickerOptions['formatter'] == 'js'){
+                    } elseif (isset($pickerOptions['formatter']) && $pickerOptions['formatter'] == 'js'){
                         if (isset($pickerOptions['format'])){
                             return DatetimeType::convertMalotToIntlFormater( $pickerOptions['format'] );
                         } else {
@@ -159,12 +160,12 @@ class DatetimeType extends AbstractType
      */
     public function getParent()
     {
-        return \Symfony\Component\Form\Extension\Core\Type\DateTimeType::class;
+        return DateTimeType::class;
     }
     
     public function getName()
     {
-        return 'collot_datetime';
+        return $this->getBlockPrefix();
     }
 
     public function getBlockPrefix()
