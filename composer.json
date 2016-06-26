@@ -1,6 +1,6 @@
 {
-    "name": "stephanecollot/datetimepicker-bundle",
-    "version": "1.0.1",
+    "name": "mwsimple/datetimepicker-bundle",
+    "version": "2.0.0",
     "description": "Symfony bundle for Bootstrap DateTime picker",
     "keywords": ["symfony", "bootstrap", "bundle", "picker", "datepicker", "timepicker"],
     "type": "symfony-bundle",
@@ -11,9 +11,9 @@
         }
     ],
     "require": {
-        "php": ">=5.3",
-        "symfony/framework-bundle": "2.*",
-        "symfony/symfony": "2.*"
+        "php": ">=5.5.9",
+        "symfony/framework-bundle": "~2.8 || ~3.0",
+        "symfony/symfony": "3.*"
     },
     "autoload":     {
         "psr-0": {
