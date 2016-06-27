@@ -1,5 +1,5 @@
 {
-    "name": "mwsimple/datetimepicker-bundle",
+    "name": "stephanecollot/datetimepicker-bundle",
     "version": "2.0.0",
     "description": "Symfony bundle for Bootstrap DateTime picker",
     "keywords": ["symfony", "bootstrap", "bundle", "picker", "datepicker", "timepicker"],
