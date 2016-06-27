@@ -16,7 +16,6 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 /**
 * SCDatetimeType
@@ -70,8 +69,8 @@ class SCDatetimeType extends AbstractType
         if(!isset($pickerOptions['format']))
             $pickerOptions['format'] = 'mm/dd/yyyy HH:ii';
 
-        if (isset($pickerOptions['formatter']) && $pickerOptions['formatter'] == 'php'){
-            $pickerOptions['format'] = DatetimeType::convertIntlFormaterToMalot( $pickerOptions['format'] );
+        if ($pickerOptions['formatter'] == 'php'){
+            $pickerOptions['format'] = SCDatetimeType::convertIntlFormaterToMalot( $pickerOptions['format'] );
         }
 
         $view->vars = array_replace($view->vars, array(
@@ -92,17 +91,17 @@ class SCDatetimeType extends AbstractType
                 'format' => function (Options $options, $value) use ($configs) {
                     $pickerOptions = array_merge($configs, $options['pickerOptions']);
 
-                    if (isset($pickerOptions['formatter']) && $pickerOptions['formatter'] == 'php'){
+                    if ($pickerOptions['formatter'] == 'php'){
                         if (isset($pickerOptions['format'])){
                             return $pickerOptions['format'];
                         } else {
                             return 'mm/dd/yyyy HH:ii';
                         }
-                    } elseif (isset($pickerOptions['formatter']) && $pickerOptions['formatter'] == 'js'){
+                    } elseif ($pickerOptions['formatter'] == 'js'){
                         if (isset($pickerOptions['format'])){
-                            return DatetimeType::convertMalotToIntlFormater( $pickerOptions['format'] );
+                            return SCDatetimeType::convertMalotToIntlFormater( $pickerOptions['format'] );
                         } else {
-                            return DatetimeType::convertMalotToIntlFormater( 'mm/dd/yyyy HH:ii' );
+                            return SCDatetimeType::convertMalotToIntlFormater( 'mm/dd/yyyy HH:ii' );
                         }
                     }
                 },
@@ -160,7 +159,7 @@ class SCDatetimeType extends AbstractType
      */
     public function getParent()
     {
-        return DateTimeType::class;
+        return \Symfony\Component\Form\Extension\Core\Type\DateTimeType::class;
     }
     
     public function getName()

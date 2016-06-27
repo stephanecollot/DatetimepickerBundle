@@ -1,7 +1,9 @@
 {% block form_stylesheet %}
 {% spaceless %}
     {% for child in form %}
-        {{ form_stylesheet(child) }}
+        {% if child.vars.pickerOptions is defined %}
+            {{ form_stylesheet(child) }}
+        {% endif %}
     {% endfor %}
 {% endspaceless %}
 {% endblock form_stylesheet %}
