@@ -1,7 +1,7 @@
 <?php
 
 /*
-* This file is part of the SCDatetimepickerBundle package.
+* This file is part of the DatetimepickerBundle package.
 *
 * (c) Stephane Collot
 *
@@ -18,10 +18,10 @@ use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
-* SCDatetimeType
+* DatetimeType
 *
 */
-class SCDatetimeType extends AbstractType
+class DatetimeType extends AbstractType
 {
     /**
      *
@@ -70,7 +70,7 @@ class SCDatetimeType extends AbstractType
             $pickerOptions['format'] = 'mm/dd/yyyy HH:ii';
 
         if ($pickerOptions['formatter'] == 'php'){
-            $pickerOptions['format'] = SCDatetimeType::convertIntlFormaterToMalot( $pickerOptions['format'] );
+            $pickerOptions['format'] = DatetimeType::convertIntlFormaterToMalot( $pickerOptions['format'] );
         }
 
         $view->vars = array_replace($view->vars, array(
@@ -99,9 +99,9 @@ class SCDatetimeType extends AbstractType
                         }
                     } elseif ($pickerOptions['formatter'] == 'js'){
                         if (isset($pickerOptions['format'])){
-                            return SCDatetimeType::convertMalotToIntlFormater( $pickerOptions['format'] );
+                            return DatetimeType::convertMalotToIntlFormater( $pickerOptions['format'] );
                         } else {
-                            return SCDatetimeType::convertMalotToIntlFormater( 'mm/dd/yyyy HH:ii' );
+                            return DatetimeType::convertMalotToIntlFormater( 'mm/dd/yyyy HH:ii' );
                         }
                     }
                 },
