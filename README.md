@@ -37,7 +37,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new SC\DatetimepickerBundle\DatetimepickerBundle(),
+        new SC\DatetimepickerBundle\SCDatetimepickerBundle(),
     );
 }
 ```

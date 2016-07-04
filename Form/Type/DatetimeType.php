@@ -1,7 +1,7 @@
 <?php
 
 /*
-* This file is part of the DatetimepickerBundle package.
+* This file is part of the SCDatetimepickerBundle package.
 *
 * (c) Stephane Collot
 *
