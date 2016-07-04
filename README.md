@@ -37,7 +37,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new SC\DatetimepickerBundle\SCDatetimepickerBundle(),
+        new SC\DatetimepickerBundle\DatetimepickerBundle(),
     );
 }
 ```
@@ -59,16 +59,16 @@ $ php app/console assets:install web/
 ``` php
 <?php
 // ...
-use SC\DatetimepickerBundle\Form\Type\SCDatetimeType;
+use SC\DatetimepickerBundle\Form\Type\DatetimeType;
 
 public function buildForm(FormBuilder $builder, array $options)
 {
     $builder
         // defaut options
-        ->add('createdAt', SCDatetimeType::class) 
+        ->add('createdAt', DatetimeType::class) 
         
         // full options
-        ->add('updatedAt', SCDatetimeType::class, array( 'pickerOptions' =>
+        ->add('updatedAt', DatetimeType::class, array( 'pickerOptions' =>
             array('format' => 'mm/dd/yyyy',
                 'weekStart' => 0,
                 'startDate' => date('m/d/Y'), //example
