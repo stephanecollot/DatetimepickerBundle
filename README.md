@@ -59,14 +59,16 @@ $ php app/console assets:install web/
 ``` php
 <?php
 // ...
+use SC\DatetimepickerBundle\Form\Type\SCDatetimeType;
+
 public function buildForm(FormBuilder $builder, array $options)
 {
     $builder
         // defaut options
-        ->add('createdAt', 'collot_datetime') 
+        ->add('createdAt', SCDatetimeType::class) 
         
         // full options
-        ->add('updatedAt', 'collot_datetime', array( 'pickerOptions' =>
+        ->add('updatedAt', SCDatetimeType::class, array( 'pickerOptions' =>
             array('format' => 'mm/dd/yyyy',
                 'weekStart' => 0,
                 'startDate' => date('m/d/Y'), //example
