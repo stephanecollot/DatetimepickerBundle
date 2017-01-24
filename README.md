@@ -10,21 +10,10 @@ Please feel free to contribute, to fork, to send merge request and to create tic
 
 ### Step 1: Install DatetimepickerBundle
 
-Add the following dependency to your composer.json file:
-
-``` json
-{
-    "require": {
-
-        "stephanecollot/datetimepicker-bundle": "dev-master"
-    }
-}
-```
-
-and then run
+Add the bundle to your composer.json file:
 
 ```bash
-php composer.phar update stephanecollot/datetimepicker-bundle
+php composer.phar require stephanecollot/datetimepicker-bundle
 ```
 
 ### Step 2: Enable the bundle
@@ -51,7 +40,29 @@ sc_datetimepicker:
 ### Step 3: Initialize assets
 
 ``` bash
-$ php app/console assets:install web/
+php app/console assets:install
+```
+
+###Step 4: Add CSS an JS to your main template
+
+Probably somewhere inside <head>..</head>
+``` twig
+	{% stylesheets
+	    "@SCDatetimepickerBundle/Resources/public/css/datetimepicker.css"
+	%}
+	<link type="text/css" rel="stylesheet" media="screen" href="{{ asset_url }}" />
+	{% endstylesheets %}
+```
+
+Probably shortly before ..</body>. Change the line referencing the second .js file
+for a translation other than German ("de") or remove if your are fine with English.
+``` twig
+	{% javascripts
+	    "@SCDatetimepickerBundle/Resources/public/js/bootstrap-datetimepicker.js"
+	    "@SCDatetimepickerBundle/Resources/public/js//locales/bootstrap-datetimepicker.de.js"
+	%}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
 ```
 
 ## Usages
@@ -92,37 +103,19 @@ public function buildForm(FormBuilder $builder, array $options)
 }
 ```
 
-Add form_javascript and form_stylesheet
+Create a new JavaScript file (or add to one of your existing ones):
 
-The principle is to separate the javascript, stylesheet and html.
-This allows better integration of web pages.
-
-### Example:
-
-``` twig
-{% block stylesheets %}
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
-    
-    {{ form_stylesheet(form) }}
-{% endblock %}
-
-{% block javascripts %}
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    
-    {{ form_javascript(form) }}
-{% endblock %}
-
-{% block body %}
-    <form action="{{ path('my_route_form') }}" type="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
-
-        <input type="submit" />
-    </form>
-{% endblock %}
+''' js
+$(document).ready(function() {
+	$('*[data-autostart-datetimepicker]').datetimepicker();
+});
 ```
 
-## Documentation
+Adding that fragment directly in your view templates would also work, but mixing 
+HTML and JS is not a good idea from an architectural point.
+
+
+## DateTimePicker Documentation
 
 The documentation of the datetime picker is here : http://www.malot.fr/bootstrap-datetimepicker/#options
 

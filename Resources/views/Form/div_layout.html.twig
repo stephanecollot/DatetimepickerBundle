@@ -1,8 +1,28 @@
 
-
 {% block collot_datetime_widget %}
 {% spaceless %}
+
+	{# Could not find a rule on how "data-" attributs map to datetimepicker options, so we need a full map #}
+	{% set optionsMap = {
+		format:				'date-format',
+		minView:			'min-view',
+		maxView:			'max-view',
+		formatter:			'formatter',
+		weekStart:			'date-weekstart',
+		autoclose:			'date-autoclose',
+		startView:			'start-view',
+		todayHighlight:		'date-today-highlight',
+		keyboardNavigation:	'date-keyboard-navigation',
+		forceParse:			'date-force-parse',
+		pickerPosition:		'picker-position',
+	} %}
+	
     {% if widget == "single_text" %}
+		{% for key in pickerOptions|keys %}
+            {% set attr = {('data-'~(optionsMap[key] ? optionsMap[key] : key)): pickerOptions[key]}|merge(attr) %}
+		{% endfor %}
+        {% set attr = {'data-autostart-datetimepicker': true}|merge(attr) %}
+    
         {{ block("form_widget_simple") }}
     {% else %}
         <div {{ block("widget_container_attributes") }}>
