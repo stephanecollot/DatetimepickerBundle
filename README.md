@@ -105,7 +105,7 @@ public function buildForm(FormBuilder $builder, array $options)
 
 Create a new JavaScript file (or add to one of your existing ones):
 
-''' js
+``` javascript
 $(document).ready(function() {
 	$('*[data-autostart-datetimepicker]').datetimepicker();
 });
@@ -117,7 +117,7 @@ HTML and JS is not a good idea from an architectural point.
 
 ## DateTimePicker Documentation
 
-The documentation of the datetime picker is here : http://www.malot.fr/bootstrap-datetimepicker/#options
+The documentation of the datetime picker is here: http://www.malot.fr/bootstrap-datetimepicker/#options
 
 ## Notes
 
