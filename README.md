@@ -59,7 +59,7 @@ for a translation other than German ("de") or remove if your are fine with Engli
 ``` twig
 	{% javascripts
 	    "@SCDatetimepickerBundle/Resources/public/js/bootstrap-datetimepicker.js"
-	    "@SCDatetimepickerBundle/Resources/public/js//locales/bootstrap-datetimepicker.de.js"
+	    "@SCDatetimepickerBundle/Resources/public/js/locales/bootstrap-datetimepicker.de.js"
 	%}
 	<script src="{{ asset_url }}"></script>
 	{% endjavascripts %}
