@@ -54,6 +54,13 @@ sc_datetimepicker:
 $ php app/console assets:install web/
 ```
 
+### Step 4: Add assets to your templates
+
+Add `{{ form_stylesheet(form) }}` & `{{ form_javascript(form) }}` to your header or css/js blocks.
+
+The principle is to separate the javascript, stylesheet and html.
+This allows better integration of web pages.
+
 ## Usages
 
 ``` php
@@ -94,10 +101,6 @@ public function buildForm(FormBuilder $builder, array $options)
 }
 ```
 
-Add form_javascript and form_stylesheet
-
-The principle is to separate the javascript, stylesheet and html.
-This allows better integration of web pages.
 
 ### Example:
 
