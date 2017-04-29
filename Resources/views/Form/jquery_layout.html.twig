@@ -13,15 +13,17 @@
 {% block collot_datetime_javascript %}
 {% spaceless %}
 
+    {% if includeJS %}
     <script type="text/javascript" src="{{ asset('bundles/scdatetimepicker/js/bootstrap-datetimepicker.min.js') }}" charset="UTF-8"></script>
     {% if pickerOptions.language is defined %}
         <script type="text/javascript" src="{{ asset('bundles/scdatetimepicker/js/locales/bootstrap-datetimepicker.'~ pickerOptions.language ~'.js') }}" charset="UTF-8"></script>
     {% endif %}
-    
+    {% endif %}
+
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $field = $('#{% if widget != "single_text" %}datepicker_{% endif %}{{ id }}');
-        
+
             {% block collot_datetime_javascript_prototype %}
 
                 {% if widget != "single_text" %}
@@ -36,11 +38,11 @@
                     }
                 {% endif %}
 
-                $field.datetimepicker({{ pickerOptions|json_encode|raw }});  
+                $field.datetimepicker({{ pickerOptions|json_encode|raw }});
 
             {% endblock %}
         });
     </script>
-    
+
 {% endspaceless %}
 {% endblock %}

@@ -41,6 +41,7 @@ class Configuration implements ConfigurationInterface
                     ->treatTrueLike(array('enabled' => true))
                     ->children()
                         ->booleanNode('enabled')->defaultTrue()->end()
+                        ->booleanNode('auto_include_assets')->defaultFalse()->end()
                         ->arrayNode('configs')
                             ->addDefaultsIfNotSet()
                             ->children()

@@ -28,7 +28,6 @@ class SCDatetimepickerExtension extends Extension
 
             $this->$method($configs["picker"], $container);
         }
-
     }
 
     /**

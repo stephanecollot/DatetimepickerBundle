@@ -13,6 +13,8 @@
 
 {% block collot_datetime_stylesheet %}
 {% spaceless %}
+    {% if includeCSS %}
     <link href="{{ asset('bundles/scdatetimepicker/css/datetimepicker.css') }}" rel="stylesheet" media="screen">
+    {% endif %}
 {% endspaceless %}
 {% endblock collot_datetime_stylesheet %}
