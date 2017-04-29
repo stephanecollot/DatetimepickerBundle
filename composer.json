@@ -11,9 +11,9 @@
         }
     ],
     "require": {
-        "php": ">=5.3",
-        "symfony/framework-bundle": "2.*",
-        "symfony/symfony": "2.*"
+        "php": ">=5.3.9",
+        "symfony/framework-bundle": "~2.8 || ~3.0",
+        "symfony/symfony": "~2.8 || ~3.0"
     },
     "autoload":     {
         "psr-0": {
