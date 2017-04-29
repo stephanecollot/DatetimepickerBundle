@@ -1,9 +1,9 @@
 {% block form_javascript %}
-{% spaceless %}
-    {% for child in form %}
-        {{ form_javascript(child) }}
-    {% endfor %}
-{% endspaceless %}
+    {% spaceless %}
+        {% for child in form %}
+            {{ form_javascript(child) }}
+        {% endfor %}
+    {% endspaceless %}
 {% endblock form_javascript %}
 
 {% block field_javascript "" %}
@@ -11,36 +11,36 @@
 {% block button_javascript "" %}
 
 {% block collot_datetime_javascript %}
-{% spaceless %}
-
-    <script type="text/javascript" src="{{ asset('bundles/scdatetimepicker/js/bootstrap-datetimepicker.min.js') }}" charset="UTF-8"></script>
-    {% if pickerOptions.language is defined %}
-        <script type="text/javascript" src="{{ asset('bundles/scdatetimepicker/js/locales/bootstrap-datetimepicker.'~ pickerOptions.language ~'.js') }}" charset="UTF-8"></script>
-    {% endif %}
-    
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $field = $('#{% if widget != "single_text" %}datepicker_{% endif %}{{ id }}');
+    {% spaceless %}
         
-            {% block collot_datetime_javascript_prototype %}
+        <script type="text/javascript" src="{{ asset('bundles/scdatetimepicker/js/bootstrap-datetimepicker.min.js') }}" charset="UTF-8"></script>
+        {% if pickerOptions.language is defined %}
+            <script type="text/javascript" src="{{ asset('bundles/scdatetimepicker/js/locales/bootstrap-datetimepicker.'~ pickerOptions.language ~'.js') }}" charset="UTF-8"></script>
+        {% endif %}
+
+        <script type="text/javascript">
+            jQuery(function ($) {
+                $field = $('#{% if widget != "single_text" %}datepicker_{% endif %}{{ id }}');
+
+                {% block collot_datetime_javascript_prototype %}
 
                 {% if widget != "single_text" %}
-                    var $year = $('#{{ form.year.vars.id }}');
-                    var $month = $('#{{ form.month.vars.id }}');
-                    var $day = $('#{{ form.day.vars.id }}');
+                var $year = $('#{{ form.year.vars.id }}');
+                var $month = $('#{{ form.month.vars.id }}');
+                var $day = $('#{{ form.day.vars.id }}');
 
-                    $configs.onSelect = function(date) {
-                        $year.val(parseInt(date.substring(0, 4), 10));
-                        $month.val(parseInt(date.substring(5, 7), 10));
-                        $day.val(parseInt(date.substring(8), 10));
-                    }
+                $configs.onSelect = function (date) {
+                    $year.val(parseInt(date.substring(0, 4), 10));
+                    $month.val(parseInt(date.substring(5, 7), 10));
+                    $day.val(parseInt(date.substring(8), 10));
+                }
                 {% endif %}
 
-                $field.datetimepicker({{ pickerOptions|json_encode|raw }});  
+                $field.datetimepicker({{ pickerOptions|json_encode|raw }});
 
-            {% endblock %}
-        });
-    </script>
-    
-{% endspaceless %}
+                {% endblock %}
+            });
+        </script>
+
+    {% endspaceless %}
 {% endblock %}
